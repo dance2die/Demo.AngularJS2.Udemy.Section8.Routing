@@ -8,7 +8,7 @@ import {Component2Component} from "./component2.components";
     template: `
         <header>
             <ul>
-                <li><a [routerLink]="['Component1']">Component1</a></li>
+                <li><a [routerLink]="['Component1',{source: 'AppCompnent', optional: 'This is optional'}]">Component1</a></li>
                 <li><a [routerLink]="['Component2']">Component2</a></li>
             </ul>
         </header>
@@ -18,7 +18,7 @@ import {Component2Component} from "./component2.components";
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/component-1', name: 'Component1', component: Component1Component, useAsDefault: true},
+    {path: '/component-1/:source', name: 'Component1', component: Component1Component},
     {path: '/component-2', name: 'Component2', component: Component2Component}
 ])
 export class AppComponent {
